@@ -10,7 +10,7 @@ def call(body) {
 	stages{
         stage('checkout'){
             steps{
-                git branch: pipelineParams.branch, credentialsId: 'GitCredentials', url: pipelineParams.scmUrl
+                git branch: pipelineParams.branch, credentialsId: pipelineParams.credentials, url: pipelineParams.scmUrl
             }
 
         }
