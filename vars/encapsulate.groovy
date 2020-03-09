@@ -28,7 +28,7 @@ def call(body) {
         
         stage('Git checkout'){
             steps{
-                gitcheckout(branch: "${branch}", url: "${url}", credentials: "${credentials}")
+                git branch: pipelineParams.branch, credentialsId: pipelineParams.credentials, url: pipelineParams.url
             }
             
         }
