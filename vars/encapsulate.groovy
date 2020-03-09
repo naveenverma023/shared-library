@@ -65,7 +65,7 @@ def call(body) {
         
         stage('Publish HTML'){
             steps{
-                publishhtml(directory: "${directory}", files: "${files}", title: "${title}")
+                publishhtml(directory: pipelineParams.directory, files: pipelineParams.files, title: pipelineParams.title)
             }
         }
     }
