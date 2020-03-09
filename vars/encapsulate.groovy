@@ -4,10 +4,8 @@ def call(body) {
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = pipelineParams
     body()
-
-    @Library('shared-library')_
-
-pipeline{
+    
+ pipeline{
     agent any
     
     parameters {
