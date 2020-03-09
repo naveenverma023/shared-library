@@ -4,18 +4,9 @@ def call(body) {
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = pipelineParams
     body()
-    
+
  pipeline{
     agent any
-    
-    parameters {
-        string(name: 'branch', defaultValue: '', description: 'SCM branch from which you want to checkout your code')
-        string(name: 'url', defaultValue: '', description: 'SCM repository url from which you want to checkout your code')
-        password(defaultValue: '', description: 'Credentials for your SCM', name: 'credentials')
-        string(name: 'directory', defaultValue: '', description: 'Directory for all the html files')
-        string(name: 'files', defaultValue: '', description: 'The html reports to publish')
-        string(name: 'title', defaultValue: '', description: 'Title for your HTML reports')
-    }
     
     tools{
         maven 'maven-default'
