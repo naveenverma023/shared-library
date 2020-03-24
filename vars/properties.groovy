@@ -19,6 +19,7 @@ def call(body) {
             steps{
                 hello()
                 hello 'Naveen'
+				hello pipelineParams.branch
             }
         }
         
