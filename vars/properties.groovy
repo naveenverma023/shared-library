@@ -8,10 +8,6 @@ def call(body) {
  pipeline{
     agent any
     
-    tools{
-        maven 'maven-default'
-    }
-
     stages{
         stage('Clean workspace'){
             steps{
