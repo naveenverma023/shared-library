@@ -28,48 +28,13 @@ def call(body) {
         
         stage('Git checkout'){
             steps{
-                git branch: pipelineParams.branch, credentialsId: pipelineParams.credentials, url: pipelineParams.url
+                // git branch: pipelineParams.branch, credentialsId: pipelineParams.credentials, url: pipelineParams.url
+				gitcheckout(branch: pipelineParams.branch, url: pipelineParams.url, credentials: pipelineParams.credentials)
             }
             
         }
         
-        stage('Build'){
-            steps{
-                sh 'mvn clean ${goal}'
-            }
-        }
-        
-        stage('Run Unit test'){
-            steps{
-                sh 'mvn test site'
-            }
-        }
-        
-        stage('Run checkstyle'){
-            steps{
-                sh 'mvn checkstyle:checkstyle'
-            }
-        }
-        
-        stage('Run PMD'){
-            steps{
-                sh 'mvn pmd:pmd'
-            }
-        }
-        
-        stage('cobertura'){
-            steps{
-                sh 'mvn cobertura:cobertura'
-            }
-        }
-        
-        stage('Publish HTML'){
-            steps{
-                publishhtml(directory: pipelineParams.directory, files: pipelineParams.files, title: pipelineParams.title)
-            }
-        }
     }
 }
-
 
 }
